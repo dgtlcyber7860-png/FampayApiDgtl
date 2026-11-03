@@ -1,1 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* ---- Theme base ---- */
+:root {
+  color-scheme: dark;
+}
+html.dark { color-scheme: dark; }
+html.light { color-scheme: light; }
+
+body {
+  @apply bg-slate-950 text-slate-100 antialiased;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+html.light body {
+  @apply bg-slate-50 text-slate-900;
+}
+
+/* ---- Liquid Atmosphere (backgrounds) ---- */
+.liquid-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 45% at 15% 20%, rgba(139, 92, 246, 0.35), transparent 70%),
+    radial-gradient(55% 45% at 85% 80%, rgba(59, 130, 246, 0.28), transparent 70%),
+    radial-gradient(50% 45% at 50% 50%, rgba(168, 85, 247, 0.18), transparent 70%);
+  filter: blur(40px);
+}
+html.light .liquid-atmosphere {
+  background:
+    radial-gradient(60% 45% at 15% 20%, rgba(139, 92, 246, 0.20), transparent 70%),
+    radial-gradient(55% 45% at 85% 80%, rgba(59, 130, 246, 0.18), transparent 70%);
+}
+
+.liquid-mesh-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+
+/* ---- Glass / Liquid classes ---- */
+.liquid-glass-elevated {
+  background: rgba(15, 15, 25, 0.65);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+}
+html.light .liquid-glass-elevated {
+  background: rgba(255, 255, 255, 0.70);
+}
+
+.liquid-input {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+.liquid-input:focus {
+  outline: none;
+  border-color: rgba(168, 85, 247, 0.55);
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+}
+html.light .liquid-input {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.10);
+}
+
+.liquid-btn-primary {
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+  box-shadow: 0 8px 24px -8px rgba(168, 85, 247, 0.55);
+  transition: transform .15s, box-shadow .2s;
+}
+.liquid-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px -8px rgba(168, 85, 247, 0.75);
+}
+.liquid-btn-primary:active { transform: translateY(0); }
+
+.liquid-btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+.liquid-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.liquid-dock {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(99, 102, 241, 0.15));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* ---- Entry animation ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-fadeUp { animation: fadeUp 0.45s ease-out forwards; }

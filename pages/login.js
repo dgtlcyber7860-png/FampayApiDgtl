@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useState } from 'react';
 import BackHomeLink from '../components/BackHomeLink';
 import ThemeToggle from '../components/ThemeToggle';
@@ -12,20 +11,6 @@ export default function LoginPage() {
 
   return (
     <>
-      <Head>
-        <title>Merchant Portal Sign In · FampayApiDgtl</title>
-        <meta
-          name="description"
-          content="FampayApiDgtl - High-speed UPI payment automation and developer REST API gateway by @Dgtlcyber."
-        />
-        <meta property="og:title" content="FampayApiDgtl · High-Speed UPI Gateway by @Dgtlcyber" />
-        <meta
-          property="og:description"
-          content="FampayApiDgtl - High-speed UPI payment automation and developer REST API gateway by @Dgtlcyber."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-      </Head>
-
       <div className="liquid-atmosphere" aria-hidden="true"></div>
       <div className="liquid-mesh-grid" aria-hidden="true"></div>
 
